@@ -65,7 +65,7 @@ namespace Razorpay.Api
 
             // Todo: Make a utility method or something to DRY below for-each thing from across this sdk.
             List<Transfer> transfers = new List<Transfer>();
-            foreach(Entity entity in entities)
+            foreach (Entity entity in entities)
             {
                 transfers.Add(entity as Transfer);
             }
@@ -80,7 +80,7 @@ namespace Razorpay.Api
 
             List<Transfer> transfers = new List<Transfer>();
 
-            foreach(Entity entity in entities)
+            foreach (Entity entity in entities)
             {
                 transfers.Add(entity as Transfer);
             }

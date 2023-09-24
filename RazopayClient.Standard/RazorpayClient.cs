@@ -25,14 +25,14 @@ namespace Razorpay.Api
         private Subscription subscription = null;
         private VirtualAccount virtualaccount = null;
 
-        
+
         public RazorpayClient(string key, string secret)
         {
             RazorpayClient.Key = key;
             RazorpayClient.Secret = secret;
         }
 
-        
+
         public RazorpayClient(string baseUrl, string key, string secret)
         {
             RazorpayClient.BaseUrl = baseUrl;

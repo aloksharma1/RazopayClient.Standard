@@ -23,7 +23,7 @@ namespace Razorpay.Api.Errors
             Type type = Type.GetType(className);
 
             BaseError error = null;
-            if(!string.IsNullOrWhiteSpace(field))
+            if (!string.IsNullOrWhiteSpace(field))
             {
                 error = (BaseError)Activator.CreateInstance(type, message, code, httpStatusCode, field);
             }

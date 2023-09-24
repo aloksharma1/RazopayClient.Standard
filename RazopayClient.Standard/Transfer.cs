@@ -17,7 +17,7 @@ namespace Razorpay.Api
         public Transfer Edit(Dictionary<string, object> options = null)
         {
             string relativeUrl = string.Format("{0}/{1}", GetEntityUrl(), this["id"]);
-            List<Entity> entities = Request(relativeUrl, HttpMethod.PATCH, options);   
+            List<Entity> entities = Request(relativeUrl, HttpMethod.PATCH, options);
             return (Transfer)entities[0];
         }
 

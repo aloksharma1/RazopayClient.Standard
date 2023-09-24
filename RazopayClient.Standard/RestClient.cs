@@ -10,7 +10,7 @@ namespace Razorpay.Api
 {
     public class RestClient
     {
-        private List<HttpMethod> JsonifyInput = new List<HttpMethod>()
+        private readonly List<HttpMethod> JsonifyInput = new List<HttpMethod>()
         {
             HttpMethod.POST, HttpMethod.PUT, HttpMethod.PATCH
         };
@@ -19,7 +19,7 @@ namespace Razorpay.Api
         {
             HttpWebRequest request = createRequest(relativeUrl, method);
 
-            if (JsonifyInput.Contains(method) == true) 
+            if (JsonifyInput.Contains(method))
             {
                 var bytes = Encoding.UTF8.GetBytes(data);
                 request.ContentLength = bytes.Length;
@@ -61,7 +61,7 @@ namespace Razorpay.Api
 
             string appsDetailsUa = string.Empty;
 
-            foreach(Dictionary<string, string> appsDetail in appsDetails)
+            foreach (Dictionary<string, string> appsDetail in appsDetails)
             {
                 string appUa = string.Empty;
 
@@ -81,7 +81,7 @@ namespace Razorpay.Api
             return appsDetailsUa;
         }
 
-        private string createResponse(HttpWebRequest request) 
+        private string createResponse(HttpWebRequest request)
         {
             var responseValue = string.Empty;
             HttpWebResponse response = null;

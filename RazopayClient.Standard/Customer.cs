@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace Razorpay.Api
 {
-    public class Customer : Entity 
+    public class Customer : Entity
     {
         public Customer(string customerId = "")
         {
@@ -20,15 +20,15 @@ namespace Razorpay.Api
             List<Entity> entities = Request(relativeUrl, HttpMethod.POST, data);
             return (Customer)entities[0];
         }
-           
-        public Customer Edit(Dictionary<string, object> data) 
+
+        public Customer Edit(Dictionary<string, object> data)
         {
             string relativeUrl = string.Format("{0}/{1}", GetEntityUrl(), this["id"]);
             List<Entity> entities = Request(relativeUrl, HttpMethod.PUT, data);
             return (Customer)entities[0];
         }
 
-        public Token Token(string tokenId) 
+        public Token Token(string tokenId)
         {
             string relativeUrl = string.Format("{0}/{1}/tokens/{2}", GetEntityUrl(), this["id"], tokenId);
             List<Entity> entities = Request(relativeUrl, HttpMethod.GET, null);
@@ -38,14 +38,14 @@ namespace Razorpay.Api
         /**
          * Fetch multiple tokens associated with the customerId
         **/
-        public List<Token> Tokens() 
+        public List<Token> Tokens()
         {
             string relativeUrl = string.Format("{0}/{1}/tokens", GetEntityUrl(), this["id"]);
             List<Entity> entities = Request(relativeUrl, HttpMethod.GET, null);
 
             List<Token> tokens = new List<Token>();
 
-            foreach(Entity entity in entities)
+            foreach (Entity entity in entities)
             {
                 tokens.Add(entity as Token);
             }

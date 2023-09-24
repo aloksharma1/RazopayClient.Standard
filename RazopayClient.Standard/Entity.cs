@@ -9,7 +9,7 @@ namespace Razorpay.Api
     {
         public dynamic Attributes = new Dictionary<string, object>();
         private RestClient client;
-        private static Dictionary<string, string> Entities = new Dictionary<string, string>()
+        private static readonly Dictionary<string, string> Entities = new Dictionary<string, string>()
         {
             {"payment", "Razorpay.Api.Payment"},
             {"refund", "Razorpay.Api.Refund"},
@@ -25,7 +25,7 @@ namespace Razorpay.Api
             {"virtual_account", "Razorpay.Api.VirtualAccount"},
             {"addon", "Razorpay.Api.Addon"},
         };
-        private static List<HttpMethod> JsonifyInput = new List<HttpMethod>()
+        private static readonly List<HttpMethod> JsonifyInput = new List<HttpMethod>()
         {
             HttpMethod.POST, HttpMethod.PUT, HttpMethod.PATCH
         };
@@ -34,7 +34,7 @@ namespace Razorpay.Api
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                string message = "id is null";
+                const string message = "id is null";
                 throw new ArgumentNullException(message);
             }
 
@@ -61,7 +61,7 @@ namespace Razorpay.Api
 
                 relativeUrl = relativeUrl + "?" + queryString;
             }
-            else if (JsonifyInput.Contains(verb) == true)
+            else if (JsonifyInput.Contains(verb))
             {
                 postData = JsonConvert.SerializeObject(options);
             }
@@ -114,15 +114,15 @@ namespace Razorpay.Api
         // iF HttpMethod = delete, return
         private Entity ParseEntity(dynamic response)
         {
-            Entity entity = null;
-            
-            string responseEntity = (string) response["entity"];
+            Entity? entity;
 
-            if (Entities.ContainsKey(responseEntity) == true)
+            string responseEntity = (string)response["entity"];
+
+            if (Entities.ContainsKey(responseEntity))
             {
                 string type = Entities[responseEntity];
 
-                entity = (Entity) FormatterServices.GetUninitializedObject(Type.GetType(type));
+                entity = (Entity)FormatterServices.GetUninitializedObject(Type.GetType(type));
             }
             else
             {
