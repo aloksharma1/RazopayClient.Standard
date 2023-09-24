@@ -4,12 +4,12 @@ namespace Razorpay.Api
 {
     public class Order : Entity
     {
-        new public Order Fetch(string id)
+        public new Order Fetch(string id)
         {
             return (Order)base.Fetch(id);
         }
 
-        new public List<Order> All(Dictionary<string, object>? options = null)
+        public new List<Order> All(Dictionary<string, object>? options = null)
         {
             List<Entity> entities = base.All(options);
             List<Order> orders = new List<Order>();

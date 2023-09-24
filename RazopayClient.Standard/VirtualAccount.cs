@@ -11,7 +11,7 @@ namespace Razorpay.Api
             this["id"] = accountId;
         }
 
-        new public VirtualAccount Fetch(string id)
+        public new VirtualAccount Fetch(string id)
         {
             string relativeUrl = string.Format("virtual_accounts/{0}", id);
             List<Entity> entities = Request(relativeUrl, HttpMethod.GET, null);

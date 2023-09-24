@@ -4,7 +4,7 @@ namespace Razorpay.Api
 {
     public class Refund : Entity
     {
-        new public Refund Fetch(string id)
+        public new Refund Fetch(string id)
         {
             return (Refund)base.Fetch(id);
         }
@@ -16,7 +16,7 @@ namespace Razorpay.Api
             return (Refund)entities[0];
         }
 
-        new public List<Refund> All(Dictionary<string, object>? options = null)
+        public new List<Refund> All(Dictionary<string, object>? options = null)
         {
             List<Entity> entities = Request(GetEntityUrl(), HttpMethod.GET, options);
             List<Refund> refunds = new List<Refund>();

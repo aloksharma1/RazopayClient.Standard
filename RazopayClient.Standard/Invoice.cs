@@ -4,7 +4,7 @@ namespace Razorpay.Api
 {
     public class Invoice : Entity
     {
-        new public Invoice Fetch(string id)
+        public new Invoice Fetch(string id)
         {
             return (Invoice)base.Fetch(id);
         }

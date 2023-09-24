@@ -9,7 +9,7 @@ namespace Razorpay.Api
             this["id"] = customerId;
         }
 
-        new public Customer Fetch(string id)
+        public new Customer Fetch(string id)
         {
             return (Customer)base.Fetch(id);
         }

@@ -9,7 +9,7 @@ namespace Razorpay.Api
             this["id"] = transferId;
         }
 
-        new public Transfer Fetch(string id)
+        public new Transfer Fetch(string id)
         {
             return (Transfer)base.Fetch(id);
         }

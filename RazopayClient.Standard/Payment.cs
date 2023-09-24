@@ -9,12 +9,12 @@ namespace Razorpay.Api
             this["id"] = paymentId;
         }
 
-        new public Payment Fetch(string id)
+        public new Payment Fetch(string id)
         {
             return (Payment)base.Fetch(id);
         }
 
-        new public List<Payment> All(Dictionary<string, object>? options = null)
+        public new List<Payment> All(Dictionary<string, object>? options = null)
         {
             List<Entity> entities = base.All(options);
             List<Payment> payments = new List<Payment>();
