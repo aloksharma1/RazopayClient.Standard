@@ -19,7 +19,7 @@ namespace Razorpay.Api
             return (VirtualAccount)entities[0];
         }
 
-        new public List<VirtualAccount> All(Dictionary<string, object> options = null)
+        new public List<VirtualAccount> All(Dictionary<string, object>? options = null)
         {
             string relativeUrl = "virtual_accounts";
             List<Entity> entities = Request(relativeUrl, HttpMethod.GET, null);
@@ -33,14 +33,14 @@ namespace Razorpay.Api
             return virtualaccounts;
         }
 
-        public VirtualAccount Create(Dictionary<string, object> data = null)
+        public VirtualAccount Create(Dictionary<string, object>? data = null)
         {
             string relativeUrl = "virtual_accounts";
             List<Entity> entities = Request(relativeUrl, HttpMethod.POST, data);
             return (VirtualAccount)entities[0];
         }
 
-        public VirtualAccount Edit(Dictionary<string, object> data = null)
+        public VirtualAccount Edit(Dictionary<string, object>? data = null)
         {
             string relativeUrl = string.Format("virtual_accounts/{0}", this["id"]);
             List<Entity> entities = Request(relativeUrl, HttpMethod.PATCH, data);

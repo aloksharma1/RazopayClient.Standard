@@ -14,7 +14,7 @@ namespace Razorpay.Api
             return (Payment)base.Fetch(id);
         }
 
-        new public List<Payment> All(Dictionary<string, object> options = null)
+        new public List<Payment> All(Dictionary<string, object>? options = null)
         {
             List<Entity> entities = base.All(options);
             List<Payment> payments = new List<Payment>();
@@ -32,7 +32,7 @@ namespace Razorpay.Api
             return (Payment)entities[0];
         }
 
-        public Refund Refund(Dictionary<string, object> data = null)
+        public Refund Refund(Dictionary<string, object>? data = null)
         {
             string relativeUrl = GetEntityUrl() + "/" + this["id"] + "/refund";
             List<Entity> entities = Request(relativeUrl, HttpMethod.POST, data);
@@ -46,7 +46,7 @@ namespace Razorpay.Api
             return (Refund)entities[0];
         }
 
-        public List<Refund> AllRefunds(Dictionary<string, object> data = null)
+        public List<Refund> AllRefunds(Dictionary<string, object>? data = null)
         {
             string relativeUrl = string.Format("payments/{0}/refunds", this["id"]);
             List<Entity> entities = Request(relativeUrl, HttpMethod.GET, data);
@@ -58,7 +58,7 @@ namespace Razorpay.Api
             return refunds;
         }
 
-        public List<Transfer> Transfer(Dictionary<string, object> data = null)
+        public List<Transfer> Transfer(Dictionary<string, object>? data = null)
         {
             string relativeUrl = string.Format("{0}/{1}/transfers", GetEntityUrl(), this["id"]);
             List<Entity> entities = Request(relativeUrl, HttpMethod.POST, data);

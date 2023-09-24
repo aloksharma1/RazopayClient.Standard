@@ -9,7 +9,7 @@ namespace Razorpay.Api
             return (Plan)base.Fetch(id);
         }
 
-        new public List<Plan> All(Dictionary<string, object> options = null)
+        new public List<Plan> All(Dictionary<string, object>? options = null)
         {
             List<Entity> entities = base.All(options);
             List<Plan> plans = new List<Plan>();
@@ -20,7 +20,7 @@ namespace Razorpay.Api
             return plans;
         }
 
-        public Plan Create(Dictionary<string, object> data = null)
+        public Plan Create(Dictionary<string, object>? data = null)
         {
             string relativeUrl = GetEntityUrl();
             List<Entity> entities = Request(relativeUrl, HttpMethod.POST, data);

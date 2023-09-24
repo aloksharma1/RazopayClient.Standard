@@ -9,7 +9,7 @@ namespace Razorpay.Api
             return (Order)base.Fetch(id);
         }
 
-        new public List<Order> All(Dictionary<string, object> options = null)
+        new public List<Order> All(Dictionary<string, object>? options = null)
         {
             List<Entity> entities = base.All(options);
             List<Order> orders = new List<Order>();

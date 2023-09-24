@@ -14,7 +14,7 @@ namespace Razorpay.Api
             return (Subscription)base.Fetch(id);
         }
 
-        new public List<Subscription> All(Dictionary<string, object> options = null)
+        new public List<Subscription> All(Dictionary<string, object>? options = null)
         {
             List<Entity> entities = base.All(options);
             List<Subscription> subscriptions = new List<Subscription>();
@@ -39,7 +39,7 @@ namespace Razorpay.Api
             return (Subscription)entities[0];
         }
 
-        public Addon createAddon(Dictionary<string, object> data = null)
+        public Addon createAddon(Dictionary<string, object>? data = null)
         {
             string relativeUrl = GetEntityUrl() + "/" + this["id"] + "/addons";
             List<Entity> entities = Request(relativeUrl, HttpMethod.POST, data);

@@ -10,20 +10,20 @@ namespace Razorpay.Api
         protected static List<Dictionary<string, string>> appsDetails = new List<Dictionary<string, string>>();
         protected static Dictionary<string, string> headers = new Dictionary<string, string>();
 
-        private static string key = null;
-        private static string secret = null;
-        private static string baseUrl = null;
-        private Payment payment = null;
-        private Order order = null;
-        private Refund refund = null;
-        private Customer customer = null;
-        private Invoice invoice = null;
-        private Card card = null;
-        private Transfer transfer = null;
-        private Addon addon = null;
-        private Plan plan = null;
-        private Subscription subscription = null;
-        private VirtualAccount virtualaccount = null;
+        private static string? key = null;
+        private static string? secret = null;
+        private static string? baseUrl = null;
+        private Payment? payment = null;
+        private Order? order = null;
+        private Refund? refund = null;
+        private Customer? customer = null;
+        private Invoice? invoice = null;
+        private Card? card = null;
+        private Transfer? transfer = null;
+        private Addon? addon = null;
+        private Plan? plan = null;
+        private Subscription? subscription = null;
+        private VirtualAccount? virtualaccount = null;
 
 
         public RazorpayClient(string key, string secret)

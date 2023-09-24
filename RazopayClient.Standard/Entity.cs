@@ -44,7 +44,7 @@ namespace Razorpay.Api
             return entitiesList[0];
         }
 
-        protected List<Entity> All(Dictionary<string, object> options = null)
+        protected List<Entity> All(Dictionary<string, object>? options = null)
         {
             string entityUrl = GetEntityUrl();
             return Request(entityUrl, HttpMethod.GET, options);
