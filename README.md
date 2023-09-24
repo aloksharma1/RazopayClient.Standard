@@ -99,7 +99,7 @@ Customer customer = Customer.Create(options);
 
 Development
 -------
-* Open solution in visual studio 2013, it should build fine
+* Open solution in visual studio code or visual studio version that support standard 2.1 (vs 2017+ as best of my knowledge), it should build fine
 
 Ubuntu
 ------
