@@ -6,7 +6,6 @@ namespace Razorpay.Api.Errors
     {
         public SignatureVerificationError(string message) : base(message)
         {
-
         }
     }
 }

@@ -148,7 +148,7 @@ namespace Razorpay.Api
 
         public void ThrowServerError(int statusCode)
         {
-            string description = "The server did not send back a well-formed response.";
+            const string description = "The server did not send back a well-formed response.";
             throw new ServerError(description, ErrorCodes.SERVER_ERROR.ToString(), statusCode);
         }
     }

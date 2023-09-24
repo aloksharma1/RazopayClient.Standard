@@ -9,9 +9,6 @@ namespace Razorpay.Api
 
         protected static List<Dictionary<string, string>> appsDetails = new List<Dictionary<string, string>>();
         protected static Dictionary<string, string> headers = new Dictionary<string, string>();
-
-        private static string? key = null;
-        private static string? secret = null;
         private static string? baseUrl = null;
         private Payment? payment = null;
         private Order? order = null;
@@ -25,53 +22,28 @@ namespace Razorpay.Api
         private Subscription? subscription = null;
         private VirtualAccount? virtualaccount = null;
 
-
         public RazorpayClient(string key, string secret)
         {
-            RazorpayClient.Key = key;
-            RazorpayClient.Secret = secret;
+            Key = key;
+            Secret = secret;
         }
-
 
         public RazorpayClient(string baseUrl, string key, string secret)
         {
-            RazorpayClient.BaseUrl = baseUrl;
-            RazorpayClient.Key = key;
-            RazorpayClient.Secret = secret;
+            BaseUrl = baseUrl;
+            Key = key;
+            Secret = secret;
         }
 
-        public static string Key
-        {
-            get
-            {
-                return key;
-            }
-            private set
-            {
-                key = value;
-            }
-        }
+        public static string? Key { get; private set; }
 
-        public static string Secret
-        {
-            get
-            {
-                return secret;
-            }
-            private set
-            {
-                secret = value;
-            }
-        }
+        public static string? Secret { get; private set; }
 
         public static string BaseUrl
         {
             get
             {
-                if (baseUrl == null)
-                {
-                    baseUrl = DefaultBaseUrl;
-                }
+                baseUrl ??= DefaultBaseUrl;
                 return baseUrl;
             }
             private set
@@ -96,16 +68,18 @@ namespace Razorpay.Api
             }
         }
 
-        public void setAppsDetails(string title, string version)
+        public void SetAppsDetails(string title, string version)
         {
-            Dictionary<string, string> appDetail = new Dictionary<string, string>();
-            appDetail.Add("title", title);
-            appDetail.Add("version", version);
+            Dictionary<string, string> appDetail = new Dictionary<string, string>
+            {
+                { "title", title },
+                { "version", version }
+            };
 
             appsDetails.Add(appDetail);
         }
 
-        public void addHeader(string key, string value)
+        public void AddHeader(string key, string value)
         {
             headers.Add(key, value);
         }
@@ -122,10 +96,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (payment == null)
-                {
-                    payment = new Payment();
-                }
+                payment ??= new Payment();
                 return payment;
             }
         }
@@ -134,10 +105,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (order == null)
-                {
-                    order = new Order();
-                }
+                order ??= new Order();
                 return order;
             }
         }
@@ -146,10 +114,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (refund == null)
-                {
-                    refund = new Refund();
-                }
+                refund ??= new Refund();
                 return refund;
             }
         }
@@ -158,10 +123,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (customer == null)
-                {
-                    customer = new Customer();
-                }
+                customer ??= new Customer();
                 return customer;
             }
         }
@@ -170,10 +132,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (invoice == null)
-                {
-                    invoice = new Invoice();
-                }
+                invoice ??= new Invoice();
                 return invoice;
             }
         }
@@ -182,10 +141,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (card == null)
-                {
-                    card = new Card();
-                }
+                card ??= new Card();
                 return card;
             }
         }
@@ -194,10 +150,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (transfer == null)
-                {
-                    transfer = new Transfer();
-                }
+                transfer ??= new Transfer();
                 return transfer;
             }
         }
@@ -206,10 +159,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (addon == null)
-                {
-                    addon = new Addon();
-                }
+                addon ??= new Addon();
                 return addon;
             }
         }
@@ -218,10 +168,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (plan == null)
-                {
-                    plan = new Plan();
-                }
+                plan ??= new Plan();
                 return plan;
             }
         }
@@ -230,10 +177,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (subscription == null)
-                {
-                    subscription = new Subscription();
-                }
+                subscription ??= new Subscription();
                 return subscription;
             }
         }
@@ -242,10 +186,7 @@ namespace Razorpay.Api
         {
             get
             {
-                if (virtualaccount == null)
-                {
-                    virtualaccount = new VirtualAccount();
-                }
+                virtualaccount ??= new VirtualAccount();
                 return virtualaccount;
             }
         }

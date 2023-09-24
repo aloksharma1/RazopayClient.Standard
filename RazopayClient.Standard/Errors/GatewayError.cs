@@ -5,7 +5,6 @@ namespace Razorpay.Api.Errors
         public GatewayError(string message, string code, int httpStatusCode)
             : base(message, code, httpStatusCode)
         {
-
         }
     }
 }

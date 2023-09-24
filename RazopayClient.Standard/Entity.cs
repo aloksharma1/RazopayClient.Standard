@@ -50,7 +50,7 @@ namespace Razorpay.Api
             return Request(entityUrl, HttpMethod.GET, options);
         }
 
-        protected List<Entity> Request(string relativeUrl, HttpMethod verb, Dictionary<string, object> options)
+        protected List<Entity> Request(string relativeUrl, HttpMethod verb, Dictionary<string, object>? options)
         {
             client = new RestClient();
             string postData = string.Empty;

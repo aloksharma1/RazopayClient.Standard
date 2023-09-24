@@ -26,7 +26,7 @@ namespace RazorpayClientTest
             string title = "ASP.NET";
             string version = "4.5";
 
-            Helper.client.setAppsDetails(title, version);
+            Helper.client.SetAppsDetails(title, version);
 
             List<Dictionary<string, string>> appsDetails = RazorpayClient.AppsDetails;
 
@@ -40,7 +40,7 @@ namespace RazorpayClientTest
             string headerKey = "X-RZP-TEST";
             string headerValue = "success";
 
-            Helper.client.addHeader(headerKey, headerValue);
+            Helper.client.AddHeader(headerKey, headerValue);
 
             Dictionary<string, string> headers = RazorpayClient.Headers;
 
